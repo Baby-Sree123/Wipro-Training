@@ -1,0 +1,22 @@
+package com.example.customer_service.client;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.customer_service.dto.BookingDTO;
+import com.example.customer_service.dto.CustomerBookingResponseDTO;
+
+public interface BookingClient {
+
+	@GetMapping("/api/v1/{id}/bookings")
+    CustomerBookingResponseDTO getCustomerWithBookings(@PathVariable("id") Long id);
+	
+	@GetMapping("/api/v1/{customerId}/bookings-list")
+    List<BookingDTO> getBookingsByCustomerId(@PathVariable("customerId") Long customerId);
+
+
+
+
+}

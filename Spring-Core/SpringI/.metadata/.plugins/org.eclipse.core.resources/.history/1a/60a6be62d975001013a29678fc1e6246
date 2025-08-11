@@ -1,0 +1,22 @@
+package com.model;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
+public class DoctorRepository {
+    private Map<String, List<LocalDate>> doctorSchedules;
+
+    public void setDoctorSchedules(Map<String, List<LocalDate>> doctorSchedules) {
+        this.doctorSchedules = doctorSchedules;
+    }
+
+    public boolean isDoctorAvailable(String doctorId, LocalDate date) {
+        List<LocalDate> availableDates = doctorSchedules.get(doctorId);
+        return availableDates != null && availableDates.contains(date);
+    }
+}
+
+	
+
+

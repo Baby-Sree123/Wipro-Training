@@ -1,0 +1,29 @@
+package com.service;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.model.Flight;
+
+public class TicketService {
+    private Map<String, Flight> flights = new HashMap<>();
+
+    // Setter for DI - configure flights in XML
+    public void setFlights(Map<String, Flight> flights) {
+        this.flights = flights;
+    }
+
+    // Check if seats are available for a flight
+    public boolean isSeatAvailable(String flightId) {
+        Flight flight = flights.get(flightId);
+        return flight != null && flight.getAvailableSeats() > 0;
+    }
+
+    // Book a seat by reducing availableSeats by 1
+    public void bookSeat(String flightId) {
+        Flight flight = flights.get(flightId);
+        if (flight != null && flight.getAvailableSeats() > 0) {
+            flight.reduceSeat();
+        }
+    }
+}

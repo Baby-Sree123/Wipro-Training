@@ -1,0 +1,29 @@
+package com.service;
+
+import java.util.UUID;
+
+import com.model.Ticket;
+
+public class TicketService {
+    private FlightService flightService;
+
+    // Dependency Injection
+    public void setFlightService(FlightService flightService) {
+        this.flightService = flightService;
+    }
+
+    // Confirm booking and create a ticket if seats available
+    public String confirmBooking(String flightId, String userId) {
+        if (flightService.isSeatAvailable(flightId)) {
+            flightService.bookSeat(flightId);  // <-- fix here, remove type from argument
+            // Generate ticket ID - UUID for uniqueness
+            String ticketId = UUID.randomUUID().toString();
+            Ticket ticket = new Ticket(ticketId, userId, flightId, "CONFIRMED");
+            // Save ticket if needed
+            
+            return "Booking confirmed for " + userId + " on " + flightId + " | Ticket: " + ticketId;
+        } else {
+            return "Flight " + flightId + " is full";
+        }
+    }
+}

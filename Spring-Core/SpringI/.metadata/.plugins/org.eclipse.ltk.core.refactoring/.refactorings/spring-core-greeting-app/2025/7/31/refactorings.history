@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.model.Cutomer.java&apos; to &apos;Customer.java&apos;&#x0D;&#x0A;- Original project: &apos;spring-core-greeting-app&apos;&#x0D;&#x0A;- Original element: &apos;com.model.Cutomer.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.model.Customer.java&apos;" description="Rename compilation unit &apos;Cutomer.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.model{Cutomer.java" name="Customer.java" references="false" stamp="1753954962089" version="1.0"/>
+</session>

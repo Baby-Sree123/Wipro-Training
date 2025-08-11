@@ -1,0 +1,33 @@
+package com.example.customer_service.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.customer_service.model.Customer;
+import com.example.customer_service.repository.CustomerRepository;
+
+
+
+public class CustomerService {
+	
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	public List<Customer> getAllCustomerss() {
+		return customerRepository.findAll();
+	}
+	
+	public Customer saveHotel(Customer customer) {
+		return customerRepository.save(customer);
+	}
+	
+	public Customer getHotelById(Long Id) {
+		return customerRepository.findById(Id).get();
+	}
+	
+	public void deleteCustomer(Long id) {
+		customerRepository.deleteById(id);
+	}
+
+}

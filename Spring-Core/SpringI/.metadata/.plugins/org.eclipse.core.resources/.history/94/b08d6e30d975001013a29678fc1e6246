@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="doctorRepository" class="DoctorRepository">
+        <property name="doctorSchedules">
+            <map>
+                <entry key="DOC101">
+                    <list>
+                        <value>2025-04-10</value>
+                        <value>2025-04-11</value>
+                    </list>
+                </entry>
+                <entry key="DOC102">
+                    <list>
+                        <value>2025-04-12</value>
+                        <value>2025-04-13</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="appointmentService" class="AppointmentService">
+        <property name="doctorRepository" ref="doctorRepository" />
+    </bean>
+
+</beans>

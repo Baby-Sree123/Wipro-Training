@@ -1,0 +1,21 @@
+package com.main;
+
+import com.service.OrderService;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+public class MainApp {
+    public static void main(String[] args) {
+        // Create Spring context using package scan (assuming your components are in com.service package)
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.service");
+
+        // Get OrderService bean
+        OrderService orderService = context.getBean(OrderService.class);
+
+        // Test checkout
+        System.out.println(orderService.checkout("CART001")); // Should print: Checkout successful for CART001
+        System.out.println(orderService.checkout("CART002")); // Should print: Item out of stock
+        System.out.println(orderService.checkout("INVALID")); // Should print: Cart is invalid
+
+        context.close();
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define Flight beans -->
+    <bean id="flight1" class="com.model.Flight">
+        <constructor-arg value="FL123"/>
+        <constructor-arg value="New York"/>
+        <constructor-arg value="London"/>
+        <constructor-arg value="2"/>
+    </bean>
+
+    <bean id="flight2" class="com.model.Flight">
+        <constructor-arg value="FL456"/>
+        <constructor-arg value="Paris"/>
+        <constructor-arg value="Tokyo"/>
+        <constructor-arg value="0"/>
+    </bean>
+
+    <!-- FlightService with flights map injected -->
+    <bean id="flightService" class="com.service.FlightService">
+        <property name="flights">
+            <map>
+                <entry key="FL123" value-ref="flight1"/>
+                <entry key="FL456" value-ref="flight2"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- TicketService depends on FlightService -->
+    <bean id="ticketService" class="com.service.TicketService">
+        <property name="flightService" ref="flightService"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,16 @@
+package com.main;
+
+import com.model.AppointmentService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+        AppointmentService service = (AppointmentService) context.getBean("appointmentService");
+
+        System.out.println(service.book("DOC101", "2025-04-10")); // Should print: Appointment confirmed
+        System.out.println(service.book("DOC101", "2025-04-15")); // Should print: Doctor not available
+    }
+}

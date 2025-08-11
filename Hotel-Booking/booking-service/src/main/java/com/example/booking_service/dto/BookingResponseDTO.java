@@ -1,0 +1,43 @@
+package com.example.booking_service.dto;
+
+import java.time.LocalDate;
+
+public class BookingResponseDTO {
+    
+    private Long id;
+    private LocalDate checkInDate;
+    private LocalDate checkOutDate;
+    private RoomDTO room;
+    private Long roomId; 
+
+    public Long getRoomId() {
+        return roomId;
+    }
+    public void setRoomId(Long roomId) {
+        this.roomId = roomId;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public LocalDate getCheckInDate() {
+        return checkInDate;
+    }
+    public void setCheckInDate(LocalDate checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+    public LocalDate getCheckOutDate() {
+        return checkOutDate;
+    }
+    public void setCheckOutDate(LocalDate checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+    public RoomDTO getRoom() {
+        return room;
+    }
+    public void setRoom(RoomDTO room) {
+        this.room = room;
+    }
+}

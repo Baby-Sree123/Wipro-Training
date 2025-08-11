@@ -1,0 +1,23 @@
+package com.main;
+
+import com.model.AppointmentService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+    public static void main(String[] args) {
+        // beans.xml is loaded from classpath root (src/main/resources)
+        ApplicationContext context = new ClassPathXmlApplicationContext("com/config/beans.xml");
+
+        AppointmentService service = (AppointmentService) context.getBean("appointmentService");
+
+        System.out.println(service.book("DOC101", "2025-04-10")); // Output: Appointment confirmed
+        System.out.println(service.book("DOC101", "2025-04-15")); // Output: Doctor not available
+
+        // Optional: Print all bean names loaded
+        System.out.println("Beans loaded in context:");
+        for (String beanName : context.getBeanDefinitionNames()) {
+            System.out.println(beanName);
+        }
+    }
+}

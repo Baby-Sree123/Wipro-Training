@@ -1,0 +1,47 @@
+package com.example.booking_service.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.example.booking_service.dto.RoomDTO;
+import com.example.booking_service.model.Booking;
+import com.example.booking_service.service.BookingService;
+
+@RestController
+@RequestMapping("/api/bookings")
+public class BookingController {
+
+    @Autowired
+    private BookingService bookingService;
+
+    // Create a new booking
+    @PostMapping
+    public Booking createBooking(@RequestBody Booking booking) {
+        return bookingService.saveBooking(booking);
+    }
+
+    // Get all bookings
+    @GetMapping
+    public List<Booking> getAllBookings() {
+        return bookingService.getAllBookings();
+    }
+
+    // Get booking by ID
+    @GetMapping("/{id}")
+    public Optional<Booking> getBookingById(@PathVariable Long id) {
+        return bookingService.getBookingById(id);
+    }
+
+    // Delete booking by ID
+    @DeleteMapping("/{id}")
+    public void deleteBooking(@PathVariable Long id) {
+        bookingService.deleteBooking(id);
+    }
+    @GetMapping("/room/{roomId}")
+    public RoomDTO getRoomDetails(@PathVariable Long roomId) {
+        return bookingService.getRoomDetails(roomId);
+    }
+}

@@ -1,0 +1,27 @@
+package com.model;
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+
+public class DoctorRepository {
+    private Map<String, List<String>> doctorSchedules;  // <-- Use List<String>
+
+    public void setDoctorSchedules(Map<String, List<String>> doctorSchedules) {
+        this.doctorSchedules = doctorSchedules;
+    }
+
+    public boolean isDoctorAvailable(String doctorId, Date date) {
+        List<String> availableDates = doctorSchedules.get(doctorId);
+        if (availableDates == null) return false;
+
+        for (String dStr : availableDates) {
+            if (Date.valueOf(dStr).equals(date)) {  // Convert String to Date and compare
+                return true;
+            }
+        }
+        return false;
+    }
+}

@@ -1,0 +1,20 @@
+package com.example.customer_service.client;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.customer_service.dto.BookingDTO;
+import com.example.customer_service.dto.CustomerBookingResponseDTO;
+
+@FeignClient(name = "booking-service", url = "http://localhost:1111") // or omit url if using Eureka
+public interface BookingClient {
+
+    @GetMapping("/api/{id}/bookings")
+    CustomerBookingResponseDTO getCustomerWithBookings(@PathVariable("id") Long id);
+
+    @GetMapping("/api/{customerId}/bookings-list")
+    List<BookingDTO> getBookingsByCustomerId(@PathVariable("customerId") Long customerId);
+}

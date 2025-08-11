@@ -1,0 +1,5 @@
+package com.example.movie_service.service;
+
+public class MovieServiceImpl {
+
+}

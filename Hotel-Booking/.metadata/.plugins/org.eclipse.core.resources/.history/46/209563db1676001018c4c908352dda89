@@ -1,0 +1,14 @@
+package com.example.booking_service.service;
+
+
+import com.example.booking_service.dto.RoomDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+@FeignClient(name = "room-service") // This must match the application name of room-service in Eureka
+public interface RoomClient {
+
+    @GetMapping("/api/rooms/{id}")
+    RoomDTO getRoomById(@PathVariable("id") Long id);
+}
