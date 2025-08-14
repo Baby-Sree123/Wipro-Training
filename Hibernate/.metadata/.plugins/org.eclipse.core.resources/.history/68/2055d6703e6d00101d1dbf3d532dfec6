@@ -1,0 +1,30 @@
+package com.test;
+
+public class Employee {
+	
+	private int id;
+	private String emp_name;
+	private String emp_cmp;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getEmp_name() {
+		return emp_name;
+	}
+	public void setEmp_name(String emp_name) {
+		this.emp_name = emp_name;
+	}
+	public String getEmp_cmp() {
+		return emp_cmp;
+	}
+	public void setEmp_cmp(String emp_cmp) {
+		this.emp_cmp = emp_cmp;
+	}
+	
+	
+	
+
+}

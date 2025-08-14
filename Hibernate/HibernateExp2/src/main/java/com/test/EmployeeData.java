@@ -1,0 +1,54 @@
+package com.test;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class EmployeeData {
+	public static void main(String[]  args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		
+		SessionFactory sf = cfg.buildSessionFactory();
+		Session session = sf.openSession();
+		Transaction t = session.beginTransaction();
+		
+		
+		
+		/*Employee obj = new Employee();
+		obj.setEmp_name("Ram");
+		obj.setEmp_cmp("Wipro");
+		obj.setEmp_salary(45000);*/
+		
+		Employee obj = session.get(Employee.class,2);
+		
+        System.out.println(obj.getId() + ", "+ obj.getEmp_name() + ", " + obj.getEmp_cmp() + " ," + obj.getEmp_salary());
+		
+		obj.setEmp_name("Goa");
+		obj.setEmp_cmp("Ram");
+		obj.setEmp_salary(35000);
+		
+		session.persist(obj);
+
+		
+//		session.persist(obj);
+//		t.commit();
+//		System.out.println("Done");
+//		session.close();  
+//		
+//		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
