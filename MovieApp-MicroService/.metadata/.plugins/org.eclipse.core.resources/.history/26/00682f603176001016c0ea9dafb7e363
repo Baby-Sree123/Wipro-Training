@@ -1,5 +1,0 @@
-package com.example.booking_service.dto;
-
-public class CustomerDTO {
-
-}
