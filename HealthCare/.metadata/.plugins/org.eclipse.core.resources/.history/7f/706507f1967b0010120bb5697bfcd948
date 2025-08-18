@@ -1,0 +1,97 @@
+package com.example.patient_service.model;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Patient {
+    @Id
+    private String id;
+    private String firstName;
+    private String lastName;
+    private LocalDate dateOfBirth;
+
+    @Embedded
+    private ContactInfo contactInfo;
+
+    @Embedded
+    private InsuranceDetails insuranceDetails;
+
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+	public Patient(String id, String firstName, String lastName, LocalDate dateOfBirth, ContactInfo contactInfo,
+			InsuranceDetails insuranceDetails, LocalDateTime createdAt, LocalDateTime updatedAt) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.contactInfo = contactInfo;
+		this.insuranceDetails = insuranceDetails;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+	public Patient() {
+		super();
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	public ContactInfo getContactInfo() {
+		return contactInfo;
+	}
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
+	}
+	public InsuranceDetails getInsuranceDetails() {
+		return insuranceDetails;
+	}
+	public void setInsuranceDetails(InsuranceDetails insuranceDetails) {
+		this.insuranceDetails = insuranceDetails;
+	}
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	@Override
+	public String toString() {
+		return "Patient [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
+				+ dateOfBirth + ", contactInfo=" + contactInfo + ", insuranceDetails=" + insuranceDetails
+				+ ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+	}
+
+    
+}

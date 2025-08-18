@@ -1,0 +1,45 @@
+package com.example.patient_service.entity;
+
+public class ContactInfo {
+	
+	 private String primaryPhone;
+	    private String secondaryPhone;
+	    private String email;
+	    private String emergencyContactName;
+	    private String emergencyContactPhone;
+		public String getPrimaryPhone() {
+			return primaryPhone;
+		}
+		public void setPrimaryPhone(String primaryPhone) {
+			this.primaryPhone = primaryPhone;
+		}
+		public String getSecondaryPhone() {
+			return secondaryPhone;
+		}
+		public void setSecondaryPhone(String secondaryPhone) {
+			this.secondaryPhone = secondaryPhone;
+		}
+		public String getEmail() {
+			return email;
+		}
+		public void setEmail(String email) {
+			this.email = email;
+		}
+		public String getEmergencyContactName() {
+			return emergencyContactName;
+		}
+		public void setEmergencyContactName(String emergencyContactName) {
+			this.emergencyContactName = emergencyContactName;
+		}
+		public String getEmergencyContactPhone() {
+			return emergencyContactPhone;
+		}
+		public void setEmergencyContactPhone(String emergencyContactPhone) {
+			this.emergencyContactPhone = emergencyContactPhone;
+		}
+	    
+	    
+	    
+	    
+
+}

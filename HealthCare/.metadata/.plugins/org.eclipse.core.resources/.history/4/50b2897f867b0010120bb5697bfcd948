@@ -1,0 +1,14 @@
+package com.example.patient_service;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Embeddable;
+
+@Embeddable
+public class InsuranceDetailsI {
+	 private String providerName;
+	    private String policyNumber;
+	    private String coverageDetails;
+	    private LocalDate expirationDate;
+
+}
