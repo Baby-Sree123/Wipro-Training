@@ -1,0 +1,47 @@
+<div class="container">
+  <h2>All Users</h2>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" style="color: red;">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Total users -->
+  <div>
+    Total users: {{ users.length }}
+  </div>
+
+  <!-- Loading indicator -->
+  <div *ngIf="isLoading && !errorMessage">
+    Loading...
+  </div>
+
+  <!-- Users table -->
+  <table *ngIf="users.length > 0" border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td><button (click)="editUser(user.id)">Edit</button></td>
+        <td><button (click)="deleteUser(user.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br />
+
+  <!-- Add and back buttons -->
+  <button><a href="/add-user">Add User</a></button> |
+  <button><a href="/">Back To Main Menu</a></button>
+</div>

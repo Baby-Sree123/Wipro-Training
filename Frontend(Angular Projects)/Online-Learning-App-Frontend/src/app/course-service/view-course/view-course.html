@@ -1,0 +1,47 @@
+<h2 style="text-align: center;">All Courses</h2>
+
+<div *ngIf="errorMessage" style="color: red; text-align: center;">
+  {{ errorMessage }}
+</div>
+
+<div style="text-align: center;">
+  Total courses: {{ courses.length }}
+</div>
+
+<div *ngIf="!courses.length && !errorMessage" style="text-align: center;">
+  Loading ...
+</div>
+
+<div *ngIf="courses.length > 0" class="table-container">
+  <table class="course-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Duration</th>
+        <th>Created At</th>
+        <th colspan="2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course.id }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.duration }}</td>
+        <td>{{ course.createdAt ? (course.createdAt | date:'medium') : 'No Date' }}</td>
+
+        <td><button (click)="editCourse(course.id)">Edit</button></td>
+        <td><button (click)="deleteCourse(course.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<br />
+
+<div style="text-align: center;">
+  <button><a href="/add-course">Add Course</a></button>
+  <button><a href="/">Back To Main Menu</a></button>
+</div>

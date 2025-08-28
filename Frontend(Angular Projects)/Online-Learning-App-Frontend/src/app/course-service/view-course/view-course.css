@@ -1,0 +1,51 @@
+/* Center the entire content */
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+
+.table-container {
+  width: 100%;
+  max-width: 900px;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.course-table th,
+.course-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.course-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Buttons */
+button {
+  margin: 5px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Align the footer buttons in center */
+div[style*="text-align: center;"] {
+  margin-top: 20px;
+}

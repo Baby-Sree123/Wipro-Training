@@ -1,0 +1,55 @@
+<h2 style="text-align: center;">All Assessments</h2>
+
+<div *ngIf="errorMessage" style="color: red; text-align: center;">
+  {{ errorMessage }}
+</div>
+
+<div style="text-align: center; margin-bottom: 10px;">
+  Total assessments: {{ assessments.length }}
+</div>
+
+<div *ngIf="!assessments.length && !errorMessage" style="text-align: center; font-style: italic;">
+  Loading...
+</div>
+
+<div style="text-align: center; margin-bottom: 20px;">
+  <input type="text" [(ngModel)]="message" (change)="onChange()" placeholder="Search..." />
+</div>
+
+<table *ngIf="assessments.length > 0" class="assessment-table" style="width: 100%; max-width: 900px; margin: 0 auto; border-collapse: collapse;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th>ID</th>
+      <th>TITLE</th>
+      <th>DESCRIPTION</th>
+      <th>TOTAL MARKS</th>
+      <th>DEADLINE</th>
+     
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let assessment of assessments" style="border-bottom: 1px solid #ddd;">
+      <td style="text-align: center;">{{ assessment.id }}</td>
+      <td>{{ assessment.title }}</td>
+      <td>{{ assessment.description }}</td>
+      <td style="text-align: center;">{{ assessment.totalMarks }}</td>
+      <td style="text-align: center;">{{ assessment.deadline }}</td>
+      
+      <td style="text-align: center;">
+        <button (click)="editAssessment(assessment.id)" class="btn-edit">Edit</button>
+      </td>
+      <td style="text-align: center;">
+        <button (click)="deleteAssessment(assessment.id)" class="btn-delete">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<br />
+
+<div style="text-align: center;">
+  <a [routerLink]="['/add-assessment']" class="link-action">Add Assessment</a> |
+  <a [routerLink]="['/']" class="link-action">Back To Main Menu</a>
+</div>

@@ -1,0 +1,73 @@
+<div class="add-user-container">
+  <h1 class="text-center">Edit User</h1>
+
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="name">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        id="name"
+        [(ngModel)]="user.name"
+        required
+      />
+    </div>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        class="form-control"
+        name="email"
+        id="email"
+        [(ngModel)]="user.email"
+        required
+      />
+    </div>
+
+    <!-- Password Field -->
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        name="password"
+        id="password"
+        [(ngModel)]="user.password"
+        required
+      />
+    </div>
+
+    <!-- Role Field -->
+    <div class="mb-3">
+      <label for="role">Role</label>
+      <select
+        class="form-control"
+        name="role"
+        id="role"
+        [(ngModel)]="user.role"
+        required
+      >
+        <option value="" disabled>Select Role</option>
+        <option value="STUDENT">Student</option>
+        <option value="TEACHER">Teacher</option>
+        <option value="ADMIN">Admin</option>
+      </select>
+    </div>
+
+    <div class="button-row">
+      <button type="submit" id="submit">Update User</button>
+      <button type="reset" id="reset">Reset</button>
+    </div>
+  </form>
+
+  <p class="text-danger">{{ message }}</p>
+
+  <div class="links">
+    <button><a routerLink="/user">Back to User Menu</a></button>
+    <button><a routerLink="/">Back To Main Menu</a></button>
+  </div>
+</div>

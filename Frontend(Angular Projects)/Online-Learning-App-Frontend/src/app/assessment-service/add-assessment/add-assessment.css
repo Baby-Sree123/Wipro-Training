@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.add-classroom-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.add-classroom-container h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+/* Form Labels & Inputs */
+.add-classroom-container form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  text-align: left;
+}
+
+.add-classroom-container form input,
+.add-classroom-container form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  font-family: inherit;
+  resize: vertical; /* allow textarea resizing */
+}
+
+.add-classroom-container form input:focus,
+.add-classroom-container form textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Buttons */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.button-row button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-row button:hover {
+  background-color: #2980b9;
+}
+
+button[type="reset"] {
+  background-color: #e74c3c;
+}
+
+button[type="reset"]:hover {
+  background-color: #c0392b;
+}
+
+
+.links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.links button {
+  background-color: #2ecc71;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  display: block;
+}
+
+.links button:hover {
+  background-color: #27ae60;
+}
+
+
+.add-classroom-container p {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #2d3436;
+}
