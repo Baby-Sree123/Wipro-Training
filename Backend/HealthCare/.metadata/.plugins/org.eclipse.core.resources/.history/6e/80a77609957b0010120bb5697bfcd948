@@ -1,0 +1,105 @@
+package com.example.patient_service.service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.patient_service.model.ContactInfo;
+import com.example.patient_service.model.InsuranceDetails;
+import com.example.patient_service.model.Patient;
+import com.example.patient_service.repository.PatientRepository;
+
+@Service
+public class PatientService {
+
+    @Autowired
+    private PatientRepository patientRepository;
+
+    public Patient createPatient(Patient patient) {
+        if (!isValidPatient(patient)) {
+            throw new IllegalArgumentException("Invalid patient data");
+        }
+        patient.setId(UUID.randomUUID().toString()); // UUID String as ID
+        patient.setCreatedAt(LocalDateTime.now());
+        return patientRepository.save(patient);
+    }
+
+    public Optional<Patient> getPatientById(String id) {
+        return patientRepository.findById(id);
+    }
+
+    public List<Patient> getAllPatients() {
+        return patientRepository.findAll();
+    }
+
+    public Patient updatePatient(Patient updatedPatient) {
+        if (updatedPatient.getId() == null) {
+            throw new IllegalArgumentException("Patient ID must not be null");
+        }
+
+        Optional<Patient> existingPatientOpt = patientRepository.findById(updatedPatient.getId());
+        if (existingPatientOpt.isEmpty()) {
+            throw new RuntimeException("Patient not found");
+        }
+
+        Patient patient = existingPatientOpt.get();
+
+        if (updatedPatient.getFirstName() != null) {
+            patient.setFirstName(updatedPatient.getFirstName());
+        }
+        if (updatedPatient.getLastName() != null) {
+            patient.setLastName(updatedPatient.getLastName());
+        }
+        if (updatedPatient.getDateOfBirth() != null) {
+            patient.setDateOfBirth(updatedPatient.getDateOfBirth());
+        }
+        if (updatedPatient.getContactInfo() != null) {
+            if (!isValidContactInfo(updatedPatient.getContactInfo())) {
+                throw new IllegalArgumentException("Invalid contact information");
+            }
+            patient.setContactInfo(updatedPatient.getContactInfo());
+        }
+        if (updatedPatient.getInsuranceDetails() != null) {
+            if (!isValidInsuranceDetails(updatedPatient.getInsuranceDetails())) {
+                throw new IllegalArgumentException("Invalid insurance details");
+            }
+            patient.setInsuranceDetails(updatedPatient.getInsuranceDetails());
+        }
+
+        patient.setUpdatedAt(LocalDateTime.now());
+        return patientRepository.save(patient);
+    }
+
+    public void deletePatient(String id) {
+        if (!patientRepository.existsById(id)) {
+            throw new RuntimeException("Patient not found");
+        }
+        patientRepository.deleteById(id);
+    }
+
+    private boolean isValidPatient(Patient patient) {
+        return patient.getFirstName() != null &&
+               patient.getLastName() != null &&
+               isValidContactInfo(patient.getContactInfo()) &&
+               isValidInsuranceDetails(patient.getInsuranceDetails());
+    }
+
+    private boolean isValidContactInfo(ContactInfo contactInfo) {
+        if (contactInfo == null || contactInfo.getPrimaryPhone() == null || contactInfo.getEmail() == null) {
+            return false;
+        }
+        return contactInfo.getEmail().matches("^[A-Za-z0-9+_.-]+@(.+)$");
+    }
+
+    private boolean isValidInsuranceDetails(InsuranceDetails insuranceDetails) {
+        return insuranceDetails != null &&
+               insuranceDetails.getProviderName() != null &&
+               insuranceDetails.getPolicyNumber() != null &&
+               insuranceDetails.getExpirationDate() != null &&
+               !insuranceDetails.getExpirationDate().isBefore(java.time.LocalDate.now());
+    }
+}
