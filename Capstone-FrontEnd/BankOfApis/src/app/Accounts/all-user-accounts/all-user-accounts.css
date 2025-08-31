@@ -1,0 +1,113 @@
+.account-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.account-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.account-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.account-table th,
+.account-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.account-table th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 600;
+}
+
+.account-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.account-table tbody tr:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.01);
+  transition: 0.2s;
+}
+
+button {
+  margin: 3px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+/* Specific button styles */
+.btn-transactions {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.btn-delete {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.btn-details {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+button:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+.create-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 25px;
+  background-color: #1abc9c;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.create-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.loading, .error, .no-accounts {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.loading {
+  color: #2980b9;
+}
+
+.error {
+  color: #e74c3c;
+}
+
+.no-accounts {
+  color: #7f8c8d;
+  font-style: italic;
+}

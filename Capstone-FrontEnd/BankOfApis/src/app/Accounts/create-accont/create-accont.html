@@ -1,0 +1,31 @@
+<div class="create-account-wrapper">
+  <h2>Create New Account</h2>
+
+  <form (ngSubmit)="createAccount()" class="account-form">
+    <div class="form-group">
+      <label for="type">Account Type:</label>
+      <input id="type" [(ngModel)]="account.accountType" name="accountType" placeholder="Savings / Current" required>
+    </div>
+
+    <div class="form-group">
+      <label for="balance">Account Balance:</label>
+      <input id="balance" type="number" [(ngModel)]="account.accountBalance" name="accountBalance">
+    </div>
+
+    <div class="form-group">
+      <label for="Id">User ID:</label>
+      <input id="Id" type="number" [(ngModel)]="account.userId" name="userId" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Secret Password:</label>
+      <input id="password" type="password" [(ngModel)]="account.secretPassword" name="secretPassword" required>
+    </div>
+
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <button type="submit" [disabled]="isSubmitting" class="submit-btn">
+      {{ isSubmitting ? 'Creating...' : 'Create Account' }}
+    </button>
+  </form>
+</div>

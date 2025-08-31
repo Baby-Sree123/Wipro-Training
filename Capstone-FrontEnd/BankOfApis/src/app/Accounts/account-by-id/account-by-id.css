@@ -1,0 +1,56 @@
+.account-details-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.loading {
+  text-align: center;
+  font-size: 16px;
+  color: #3498db;
+  margin-bottom: 15px;
+}
+
+.error {
+  text-align: center;
+  color: #e74c3c;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.account-card {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+.account-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.account-row:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 600;
+  color: #34495e;
+}
+
+.value {
+  color: #2c3e50;
+}

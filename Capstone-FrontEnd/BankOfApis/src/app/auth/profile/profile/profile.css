@@ -1,0 +1,57 @@
+.profile-container {
+  margin: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-table {
+  border-collapse: collapse;
+  width: 50%;
+  margin-top: 20px;
+}
+
+.user-table th, .user-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.user-table th {
+  background-color: #f3f4f6;
+  text-align: left;
+}
+
+.user-table tr:nth-child(even){background-color: #f9fafb;}
+
+.user-table tr:hover {background-color: #eef2ff;}
+
+.logout-btn {
+  margin-top: 20px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #ef4444;
+  color: white;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+.edit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+}

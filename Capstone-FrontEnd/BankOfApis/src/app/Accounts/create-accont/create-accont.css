@@ -1,0 +1,70 @@
+.create-account-wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.account-form .form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-form label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.account-form input {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.account-form input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.error {
+  color: #e74c3c;
+  margin-bottom: 10px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #3498db;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #2980b9;
+}
+
+.submit-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
