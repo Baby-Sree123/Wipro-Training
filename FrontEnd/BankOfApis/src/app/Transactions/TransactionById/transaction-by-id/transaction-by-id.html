@@ -1,0 +1,18 @@
+<div class="transaction-container">
+  <h2>Transaction Details</h2>
+
+  <div *ngIf="isLoading">Loading transaction...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf="transaction && !isLoading">
+    <p><strong>ID:</strong> {{ transaction.transactionId }}</p>
+    <p><strong>From Account:</strong> {{ transaction.fromAccountId }}</p>
+    <p><strong>To Account:</strong> {{ transaction.toAccountId }}</p>
+    <p><strong>Amount:</strong> {{ transaction.amount | currency }}</p>
+    <p><strong>Type:</strong> {{ transaction.transactiontype }}</p>
+    <p><strong>Date:</strong> {{ transaction.date_transaction | date:'short' }}</p>
+    <p><strong>User ID:</strong> {{ transaction.userId }}</p>
+  </div>
+
+  <button routerLink="/transactions">Back to All Transactions</button>
+</div>
